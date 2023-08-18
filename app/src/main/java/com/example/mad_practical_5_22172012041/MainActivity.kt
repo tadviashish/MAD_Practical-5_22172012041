@@ -4,6 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock
+import android.provider.CallLog
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 
@@ -12,11 +15,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val browsebutton:Button = findViewById(R.id.button_browse)
+        val cal:Button = findViewById(R.id.call)
+        val callog:Button = findViewById(R.id.calllog)
+        val gallery:Button = findViewById(R.id.gallery)
+        val camera:Button = findViewById(R.id.camera)
+        val alarm:Button = findViewById(R.id.alarm)
+
         val editTextBrowser:EditText = findViewById(R.id.editTextText2)
+        val editTextCall:EditText = findViewById(R.id.editTextText)
 
         browsebutton.setOnClickListener {
             openbrowse(editTextBrowser.text.toString())
         }
+
+        cal.setOnClickListener {
+            call(editTextCall.text.toString())
+        }
+        callog.setOnClickListener {
+            call_log()
+        }
+
+        gallery.setOnClickListener {
+            gallery()
+        }
+
+        camera.setOnClickListener {
+            camera()
+        }
+
+        alarm.setOnClickListener {
+            alarm()
+        }
+
     }
 
     fun openbrowse(s:String)
@@ -35,22 +65,30 @@ class MainActivity : AppCompatActivity() {
 
     fun call_log()
     {
-
+        Intent(Intent.ACTION_VIEW).setType(CallLog.Calls.CONTENT_TYPE).also {
+            startActivity(it)
+        }
     }
 
-    fun gallay(n:String)
+    fun gallery()
     {
-
+        Intent(Intent.ACTION_VIEW).setType("image/*").also {
+            startActivity(it)
+        }
     }
 
-    fun camera(n:String)
+    fun camera()
     {
-
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
+            startActivity(it)
+        }
     }
 
-    fun alarm(n:String)
+    fun alarm()
     {
-
+        Intent(AlarmClock.ACTION_SHOW_ALARMS).also {
+            startActivity(it)
+        }
     }
 
 
