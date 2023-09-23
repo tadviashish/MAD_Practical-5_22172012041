@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
         val browsebutton:Button = findViewById(R.id.button_browse)
         val cal:Button = findViewById(R.id.call)
         val callog:Button = findViewById(R.id.calllog)
-        val gallery:Button = findViewById(R.id.gallery)
+        val gallery:Button = findViewById(R.id.gallary)
         val camera:Button = findViewById(R.id.camera)
         val alarm:Button = findViewById(R.id.alarm)
 
-        val editTextBrowser:EditText = findViewById(R.id.editTextText2)
-        val editTextCall:EditText = findViewById(R.id.editTextText)
+        val editTextBrowser:EditText = findViewById(R.id.editTextText)
+        val editTextCall:EditText = findViewById(R.id.editTextPhone2)
 
         browsebutton.setOnClickListener {
             openbrowse(editTextBrowser.text.toString())
@@ -90,6 +90,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(it)
         }
     }
-
 
 }
