@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val alarm:Button = findViewById(R.id.alarm)
 
         val editTextBrowser:EditText = findViewById(R.id.editTextText)
-        val editTextCall:EditText = findViewById(R.id.editTextPhone2)
+        val editTextCall:EditText = findViewById(R.id.editTextText2)
 
         browsebutton.setOnClickListener {
             openbrowse(editTextBrowser.text.toString())
